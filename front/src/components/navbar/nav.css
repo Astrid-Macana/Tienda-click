@@ -1,0 +1,21 @@
+.container{
+    color: rgb(109, 114, 114);
+}
+.nadvar{
+    color: rgb(166, 172, 172);
+}
+
+.nombrelogo{
+    text-decoration: none;
+   background-color: linear-gradient( 173.1deg,  rgba(226,66,249,0.94) 10.2%, rgba(79,147,249,1) 77.3% );
+    font-size: 30px;
+}
+.link{
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+}
+#basic-nav-dropdown{
+    color: black;
+    font-size: 25px;
+}
