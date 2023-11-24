@@ -23,14 +23,14 @@ function CrearProductos() {
     const inputFileRef = useRef();
 
     const handleSubmit = (productosData) => {
-      saveProductos(productosData= {
+      saveProductos(productosData = {
           title:title,
           price:price,
           Categoria:categoria,
           descripcion:descripcion,
-          image: inputFileRef.current.files[0],
-        })
-       .then((response) => {
+          image: "blusa.png"
+        //   inputFileRef.current.files[0],
+        }).then((response) => {
         handleClose();
         window.location.reload();
       });
@@ -49,7 +49,7 @@ function CrearProductos() {
                 <Modal.Body>
                     <Form>
                         <Row className="mb-3">
-                            <Form.Group as={Col} controlId="idioma">
+                            <Form.Group as={Col} controlId="title">
                                 <Form.Label> Producto</Form.Label>
                                 <Form.Control placeholder="Nombre del Producto" name='title' onChange={(event) => { setTitle(event.target.value) }} />
                             </Form.Group>
@@ -71,18 +71,11 @@ function CrearProductos() {
                             <Form.Label>Descripcion</Form.Label>
                             <Form.Control placeholder="descripcion" name='descripcion' onChange={(event) => { setDescripcion(event.target.value) }} />
                         </Form.Group>
-                        
-
-                        <Row className="mb-3">
-                            <Form.Group as={Col} controlId="categoria">
-                                <Form.Select className='mb-3' name='categoria' onChange={(event) => { setCategoria(event.target.value) }}>
-                                    <option>Seleccioná una categoria</option>
-                                    <option value="ropa para mujer">Ropa para mujer</option>
-                                     <option value="ropa para hombre">Ropa para hompre</option>
-                                    
-                                </Form.Select>
-                            </Form.Group>
-                        </Row>
+                        <Form.Group className="mb-3" controlId="descripcion">
+                            <Form.Label>Categoria</Form.Label>
+                            <Form.Control placeholder="categoria" name='categoria' onChange={(event) => { setCategoria(event.target.value) }} />
+                        </Form.Group>
+                    
                     </Form>
                 </Modal.Body>
 

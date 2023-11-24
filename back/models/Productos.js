@@ -3,6 +3,7 @@ const { appConfig } = require('../config');
 
 const productoSchema = new mongoose.Schema(
     {
+       
         title: String,
         price: Number,
         descripcion: String,
@@ -20,6 +21,6 @@ const productoSchema = new mongoose.Schema(
     this.imagen = `${host}:${port}/public/${filename}`
 }*/
 
-const Producto = mongoose.model('producto', productoSchema);
+const Producto = mongoose.model('Producto', productoSchema);
 
 module.exports = Producto;

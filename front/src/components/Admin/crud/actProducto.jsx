@@ -36,7 +36,7 @@ function ActProductos(){
      const inputFileRef = useRef();
 
     const handleSubmit = () => {
-        const newCategoria = datosProductos.Catergoria;
+        const newCategoria = datosProductos.Categoria;
         const newtitle= datosProductos.title;
         const newPrice = datosProductos.price;
         const newDescripcion = datosProductos.descripcion;
@@ -59,46 +59,105 @@ function ActProductos(){
             } )
         }
     };
-     return(
-        <div>
-             <Button className=' shadow m-3' variant="primary" type="submit" value="Enviar" onClick={handleShow}>Actualizar Producto</Button>
-                <Modal show={show} onHide={handleClose} animation={false}>
-                    <Modal.Header>
-                        <Modal.Title>Actualizar Producto</Modal.Title>
-                    </Modal.Header>
+     return (
+       <div>
+         <Button
+           className=" shadow m-3"
+           variant="primary"
+           type="submit"
+           value="Enviar"
+           onClick={handleShow}
+         >
+           Actualizar Producto
+         </Button>
+         <Modal show={show} onHide={handleClose} animation={false}>
+           <Modal.Header>
+             <Modal.Title>Actualizar Producto</Modal.Title>
+           </Modal.Header>
 
-                    <Modal.Body>
-                        <Form>
-                        <Form.Group controlId="producto">
-                                <Form.Label>Seleccionar Producto</Form.Label>
-                                <Form.Select value={productosSel} onChange={handleSelProducto}>
-                                    <option>Seleccionar curso</option>
-                                    {productos.map((producto) =>(
-                                        <option key={producto._id} value={producto._id}>
-                                            {producto.Categoria} - {producto.title} - {producto.price} - {producto.descripcion}
-                                        </option>
-                                    ))}
-                                </Form.Select>
-                            </Form.Group>
-                    {productosSel && (
-                        <div>
-                            <Form.Group controlId="nombre">
-                            <Form.Label>Nombre del producto</Form.Label>
-                            <Form.Control defaultValue={datosProductos.title} name="titulo" onChange={(event) => {setDatosProductos({...datosProductos, title: event.target.value})}}></Form.Control>
-                            </Form.Group>
-                        </div>
-                    )}
-                        </Form>
-                    </Modal.Body>
+           <Modal.Body>
+             <Form>
+               <Form.Group controlId="producto">
+                 <Form.Label>Seleccionar Producto</Form.Label>
+                 <Form.Select value={productosSel} onChange={handleSelProducto}>
+                   <option>Seleccionar Producto</option>
+                   {productos.map((producto) => (
+                     <option key={producto._id} value={producto._id}>
+                       {producto.Categoria} - {producto.title} -{" "}
+                       {producto.price} - {producto.descripcion}
+                     </option>
+                   ))}
+                 </Form.Select>
+               </Form.Group>
+               {productosSel && (
+                 <div>
+                   <Form.Group controlId="nombre">
+                     <Form.Label>Nombre del producto</Form.Label>
+                     <Form.Control
+                       defaultValue={datosProductos.title}
+                       name="titulo"
+                       onChange={(event) => {
+                         setDatosProductos({
+                           ...datosProductos,
+                           title: event.target.value,
+                         });
+                       }}
+                     ></Form.Control>
+                   </Form.Group>
 
-                    <Modal.Footer>
-                    <Button variant="success" type="submit" onClick={handleSubmit}>Actualizar producto</Button>
-                    <Button variant="danger" onClick={handleClose}>Cancelar</Button>
-                </Modal.Footer>
+                   <Form.Group controlId="nombre">
+                     <Form.Label>Precio</Form.Label>
+                     <Form.Control
+                       defaultValue={datosProductos.price}
+                       name="titulo"
+                       onChange={(event) => {
+                         setDatosProductos({
+                           ...datosProductos,
+                           price: event.target.value,
+                         });
+                       }}
+                     ></Form.Control>
+                   </Form.Group>
 
-                </Modal>
-        </div>
-    )
+                   <Form.Label>Descripcion</Form.Label>
+                   <Form.Control
+                     defaultValue={datosProductos.descripcion}
+                     name="descripcion"
+                     onChange={(event) => {
+                       setDatosProductos({
+                         ...datosProductos,
+                         descripcion: event.target.value,
+                       });
+                     }}
+                   ></Form.Control>
+
+                   <Form.Label>Categoria</Form.Label>
+                   <Form.Control
+                     defaultValue={datosProductos.Categoria}
+                     name="Categoria"
+                     onChange={(event) => {
+                       setDatosProductos({
+                         ...datosProductos,
+                         Categoria: event.target.value,
+                       });
+                     }}
+                   ></Form.Control>
+                 </div>
+               )}
+             </Form>
+           </Modal.Body>
+
+           <Modal.Footer>
+             <Button variant="success" type="submit" onClick={handleSubmit}>
+               Actualizar producto
+             </Button>
+             <Button variant="danger" onClick={handleClose}>
+               Cancelar
+             </Button>
+           </Modal.Footer>
+         </Modal>
+       </div>
+     );
 
 }
  export default ActProductos ;

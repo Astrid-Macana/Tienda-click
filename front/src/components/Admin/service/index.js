@@ -14,17 +14,18 @@ export async function getProductos() {
   }
 }
 export async function saveProductos(productosData) {
-  const formData = new FormData();
-  formData.append("title", productosData.title);
-  formData.append("price", productosData.price);
-  formData.append("Categoria", productosData.Categoria);
-  formData.append("descripcion", productosData.descripcion);
-  formData.append("image", productosData.image);
+  
   try {
     const response = await axios({
       url: `${baseUrl}/productos`,
       method: "POST",
-      data: formData,
+      data: {
+        title: productosData.title,
+        price: productosData.price,
+        Categoria: productosData.Categoria,
+        descripcion: productosData.descripcion,
+        image: productosData.image,
+      },
     });
     return response;
   } catch (e) {

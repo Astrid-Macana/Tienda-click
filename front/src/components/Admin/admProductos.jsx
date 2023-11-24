@@ -45,7 +45,7 @@ export const AdmProductos = () =>{
                 <div>
                 
                   <Image
-                    src={process.env.PUBLIC_URL + image}
+                    src={"../image/" + image}
                     alt=""
                     style={{ maxWidth: "50px", maxHeight: "50px" }}
                   />

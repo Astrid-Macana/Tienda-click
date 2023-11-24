@@ -54,7 +54,7 @@ function BorrarProductos(){
           value="Enviar"
           onClick={handleShow}
         >
-          Borrar curso
+          Borrar Producto
         </Button>
 
         <Modal show={show} onHide={handleClose} animation={false}>

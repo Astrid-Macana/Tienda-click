@@ -2,14 +2,16 @@ const Producto = require('../models/Productos');
 
 async function addProducto(req, res) {
     try{
-        const {title,price,category,descripcion}=req.body;
+        const {title,price,Categoria,descripcion,image}=req.body;
         
         const producto = Producto(
             {
+             
                 title,
                 price,
-                category,
-                descripcion
+                Categoria,
+                descripcion,
+                image
             });
            const productos = await producto.save();
            res.status(201).send({productos}) 
@@ -54,7 +56,7 @@ async function updateProductos(req,res) {
 
 async function deleteProducto(req,res) {
     try {
-        const producto =await Producto.findByIdAndDelete(req,params.id);
+        const producto =await Producto.findByIdAndDelete(req.params.id);
         if (!producto) {
             return res.status(404).send({message:'se encontro el producto'})
            }

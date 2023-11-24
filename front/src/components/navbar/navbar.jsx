@@ -19,7 +19,7 @@ function Barra() {
           <Nav className="me-auto">
             <Nav.Link>
               <Link className="link" to="/admin">
-                Administrdor
+                Administrador
               </Link>
             </Nav.Link>
             <Nav.Link>
@@ -27,7 +27,7 @@ function Barra() {
                 Productos
               </Link>
             </Nav.Link>
-            <NavDropdown title="Categorias" id="basic-nav-dropdown">
+            {/* <NavDropdown title="Categorias" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.2">
                 Ropa para Mujer
               </NavDropdown.Item>
@@ -35,7 +35,7 @@ function Barra() {
                 Ropa para Hombre
               </NavDropdown.Item>
              
-            </NavDropdown>
+            </NavDropdown> */}
           </Nav>
         </Navbar.Collapse>
       </Container>

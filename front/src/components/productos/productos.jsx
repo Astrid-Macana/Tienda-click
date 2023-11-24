@@ -1,10 +1,21 @@
 import React,{useState,useEffect} from "react";
-import { getProductos } from "./service";
-import Tab from "react-bootstrap/Tab";
-import Tabs from "react-bootstrap/Tabs";
+ import { getProductos } from "./service";
+// import Tab from "react-bootstrap/Tab";
+// import Tabs from "react-bootstrap/Tabs";
+// import Container from "react-bootstrap/Container";
+// import Card from "react-bootstrap/Card";
+// import Button from "react-bootstrap/Button";
+
+ import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
+
+
 import Container from "react-bootstrap/Container";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+import Image from "react-bootstrap/Image";
+import ListGroup from "react-bootstrap/ListGroup";
 
 export const Productos = ()=>{
     const[key, setkey] = useState('Categoria');
@@ -23,52 +34,50 @@ export const Productos = ()=>{
      if (!productos.length) {
        return <div className="text-center">Cargando ...</div>;
      }
-    const productosPorCategoria = productos.reduce((acc,producto)=>{
-        if (!acc[producto.Categoria]){
-            acc[producto.Categoria]=[];
-        }
-        acc[producto.Categoria].push(producto);
-        return acc;
-    },{});
+    
     return (
-      <Container className="backGround d-flex">
-        {Object.entries(productosPorCategoria).map(([Categoria, productos]) => (
-           
-           
-           <Tabs 
-           activekey={key} 
-           onSelect={(k) => setkey(k)} 
-           key={Categoria}>
-            
-              <Tab 
-              eventkey={Categoria} title={Categoria} className="mb-3">
-                {productos.map((producto) => (
-                  <Container className="w-100">
-                    <Card className="text-center m-3">
-                      <Card.Img
-                        variant="top"
-                        src={producto.image}
-                        style={{ height: "10rem" }}
-                      />
-                      <Card.Body>
-                        <Card.Title className="m-2">
-                          {producto.Categoria}
-                        </Card.Title>
-                        <Card.Text>
-                          {producto.descripcion} - {producto.price}
-                        </Card.Text>
-                        <Button variant="primary" href=".\reserva">
-                          ver Producto
-                        </Button>
-                      </Card.Body>
-                      <Card.Footer className="text-muted">
-                        {Categoria}
-                      </Card.Footer>
-                    </Card>
-                  </Container>
-                ))}
-              </Tab>
-            </Tabs>
+      <Container>
+        {productos.map(
+          ({ _id, Categoria, title, price, image, descripcion }) => (
+            <ListGroup key={_id}>
+              <ListGroup.Item>
+                <div>
+                  <div>Categoria</div>
+                  <h3> {Categoria} </h3>
+                </div>
+              </ListGroup.Item>
+
+              <ListGroup.Item>
+                <div>
+                  <Image
+                    src={"../image/" + image}
+                    alt=""
+                    style={{ maxWidth: "90px", maxHeight: "90px" }}
+                  />
+                </div>
+              </ListGroup.Item>
+
+              <ListGroup.Item>
+                <div>
+                  <div>Nombre del Producto</div>
+                  <h3> {title} </h3>
+                </div>
+              </ListGroup.Item>
+
+              <ListGroup.Item>
+                <div>
+                  <div>Precio</div>
+                  <h3> {price} </h3>
+                </div>
+              </ListGroup.Item>
+
+              <ListGroup.Item>
+                <div>
+                  <div>Descripcion del producto</div>
+                  <h3> {descripcion} </h3>
+                </div>
+              </ListGroup.Item>
+            </ListGroup>
           )
         )}
       </Container>
