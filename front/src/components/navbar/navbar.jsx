@@ -5,7 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "./nav.css";
 
-function NavBar() {
+function Barra() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container className="container">
@@ -20,11 +20,6 @@ function NavBar() {
             <Nav.Link>
               <Link className="link" to="/admin">
                 Administrdor
-              </Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link className="link" to="/Registro">
-                Registrate
               </Link>
             </Nav.Link>
             <Nav.Link>
@@ -47,4 +42,4 @@ function NavBar() {
     </Navbar>
   );
 }
-export default NavBar;
+export default Barra;
